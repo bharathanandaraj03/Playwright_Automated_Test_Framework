@@ -1,0 +1,23 @@
+[
+  {
+    "description": "Standard User Login",
+    "username": "standard_user",
+    "password": "secret_sauce",
+    "expectedUrl": "/inventory.html",
+    "shouldSucceed": true
+  },
+  {
+    "description": "Locked Out User Login",
+    "username": "locked_out_user",
+    "password": "secret_sauce",
+    "expectedError": "Epic sadface: Sorry, this user has been locked out of this system.",
+    "shouldSucceed": false
+  },
+  {
+    "description": "Invalid Password Login",
+    "username": "standard_user",
+    "password": "wrong_password",
+    "expectedError": "Epic sadface: Username and password do not match any user in this service",
+    "shouldSucceed": false
+  }
+]
