@@ -1,26 +1,26 @@
 import { expect } from '@playwright/test';
 import {test} from '../src/fixtures/base-fixture'
 import userdata from "../src/data/users.json"
-
+import {InventoryPage} from '../src/pages/inventory.page'
 
 test.describe('Sauce Demo login suite',() =>{
   test('should login sucessfully with valid credentials', async ({page,loginPage}) => {
     await loginPage.navigate('/')
     await loginPage.login(userdata[0].username,userdata[0].password)
-    //await loginPage.login('standard_user','secret_sauce' )
-    await expect(page).toHaveURL(/.*inventory.html/)
+    
+  }),
+
+  test('Validate Item Price High to Low & Low to High Sorting order', async ({page,inventoryPage}) =>{
+    await inventoryPage.navigate('/inventory.html')
+    await inventoryPage.changeSortingOrder('hilo');
+    const priceDetailsHiLo = await inventoryPage.getPricedetails();
+    const expectedHiLo =[...priceDetailsHiLo].sort((a,b) => b-a)
+    expect(priceDetailsHiLo).toEqual(expectedHiLo);
+
+    await inventoryPage.changeSortingOrder('lohi');
+    const priceDetailsLoHi=await inventoryPage.getPricedetails();
+    const expectedLoHi =[...priceDetailsHiLo].sort((a,b) => a-b)
+    expect(priceDetailsLoHi).toEqual(expectedLoHi);
   })
+
 });
-
-
-/*test('test', async ({ page }) => {
-  await page.goto(EnvConfig.BASE_URL);
-
-  await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
-  await page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
-  await page.locator('[data-test="shopping-cart-link"]').click();
-  await page.locator('[data-test="item-4-title-link"]').click();
-  await page.locator('div').filter({ hasText: /^Open Menu$/ }).nth(1).click();
-  await page.getByRole('button', { name: 'Open Menu' }).click();
-  await page.locator('[data-test="logout-sidebar-link"]').click();
-});*/

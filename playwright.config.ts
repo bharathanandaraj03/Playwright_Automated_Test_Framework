@@ -33,10 +33,11 @@ export default defineConfig({
     headless: EnvConfig.IS_HEADLESS,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure'
+    video: 'retain-on-failure',
+    storageState: 'src/data/auth.json',
   },
   timeout:EnvConfig.TIMEOUT,
-
+globalSetup: require.resolve('./src/utils/golbal-setup.ts'),
   /* Configure projects for major browsers */
   projects: [
     {
