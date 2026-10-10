@@ -6,7 +6,7 @@ async function globalsetUp(config: FullConfig){
     const context = await browser.newContext();
     const page = await context.newPage();
 
-    console.log("Performin Global authedication setup")
+    console.log("Performing Global auth setup")
 
     await page.goto(EnvConfig.BASE_URL)
 
