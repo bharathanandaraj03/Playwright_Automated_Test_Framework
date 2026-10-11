@@ -26,7 +26,7 @@ export class InventoryPage extends BasePage {
         await this.sortingDropDown.selectOption(option);
     }
 
-    async getPricedetails(): Promise<any[]>{
+    async getPricedetails(): Promise<number[]>{
         const texts = await this.inventoryprice.allTextContents();
         return texts.map(t=> parseFloat(t.replace('$','')));
     }

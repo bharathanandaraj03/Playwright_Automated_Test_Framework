@@ -3,7 +3,7 @@ import {test} from '../../src/fixtures/base-fixture'
 import inventoryData from "../../src/data/inventory.json"
 
 test.describe('Sauce Demo Regression test',() =>{
-  test('Validate Item Price Sorting order High to Low & Low to High', async ({page,inventoryPage}) =>{
+  test('Validate Item Price Sorting order High to Low & Low to High', async ({inventoryPage}) =>{
     await inventoryPage.navigate('/inventory.html')
     await inventoryPage.changeSortingOrder(inventoryData.sortorderoptions.HightoLow);
     const priceDetailsHiLo = await inventoryPage.getPricedetails();
@@ -16,7 +16,7 @@ test.describe('Sauce Demo Regression test',() =>{
     expect(priceDetailsLoHi).toEqual(expectedLoHi);
   })
 
-    test('Validate Sorting order Item Price A to Z and Z to A', async ({page,inventoryPage}) =>{
+    test('Validate Sorting order Item Price A to Z and Z to A', async ({inventoryPage}) =>{
     await inventoryPage.navigate('/inventory.html')
     await inventoryPage.changeSortingOrder('za')
     const names = await inventoryPage.getItemNames()
@@ -24,7 +24,7 @@ test.describe('Sauce Demo Regression test',() =>{
     expect(names).toEqual(expected)
   })
 
-  test('Validate first two items are added to cart', async ({page,inventoryPage,cartPage}) =>{
+  test('Validate first two items are added to cart', async ({inventoryPage,cartPage}) =>{
     await inventoryPage.navigate('/inventory.html')
     const addedItems = await inventoryPage.addFirstItemsToCart(2);
 

@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "test": "npx playwright test",
     "test:qa": "cross-env ENV=qa npx playwright test"
   },
@@ -20,8 +22,13 @@
   },
   "homepage": "https://github.com/bharathanandaraj03/Playwright_Automated_Test_Framework#readme",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.64.0",
     "@types/node": "^26.6.4",
-    "dotenv": "^18.0.7"
+    "dotenv": "^18.0.7",
+    "eslint": "^10.12.0",
+    "eslint-plugin-playwright": "^2.12.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.1"
   }
 }

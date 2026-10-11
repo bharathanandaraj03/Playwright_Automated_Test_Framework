@@ -1,7 +1,7 @@
 import {test} from '../../src/fixtures/base-fixture';
 
-test.describe('Perform end to end tests: ',()=> {
- test('Perform checkout for the application',async ({page,inventoryPage,cartPage,checkoutPage}) => {
+test.describe('Perform end to end tests:', ()=> {
+ test('Perform checkout for the application',async ({inventoryPage,cartPage,checkoutPage}) => {
    await inventoryPage.navigate('inventory.html')
    const addedItems = await inventoryPage.addFirstItemsToCart(2);
    await inventoryPage.openCart();

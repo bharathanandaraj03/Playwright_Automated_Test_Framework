@@ -1,7 +1,7 @@
-import { chromium,FullConfig } from "@playwright/test";
+import { chromium } from "@playwright/test";
 import { EnvConfig } from "./env-loader";
 
-async function globalsetUp(config: FullConfig){
+async function globalsetUp(){
     const browser = await chromium.launch();
     const context = await browser.newContext();
     const page = await context.newPage();
