@@ -20,4 +20,17 @@ export class EnvConfig {
   static get IS_HEADLESS(): boolean {
     return process.env.HEADLESS === 'true';
   }
+
+  static get API_BASE_URL(): string { 
+    return process.env.API_BASE_URL || 'https://restful-booker.herokuapp.com'; 
+  }
+  
+  static get API_USERNAME(): string { 
+    return process.env.API_USERNAME || ''; 
+  }
+
+  static get API_PASSWORD(): string { 
+    return process.env.API_PASSWORD || ''; 
+  }
+  
 }

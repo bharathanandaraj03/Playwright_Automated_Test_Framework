@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
-import {test} from '../src/fixtures/base-fixture'
-import inventoryData from "../src/data/inventory.json"
+import {test} from '../../src/fixtures/base-fixture'
+import inventoryData from "../../src/data/inventory.json"
 
 test.describe('Sauce Demo Regression test',() =>{
   test('Validate Item Price Sorting order High to Low & Low to High', async ({page,inventoryPage}) =>{

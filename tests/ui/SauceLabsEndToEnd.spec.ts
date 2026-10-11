@@ -1,4 +1,4 @@
-import {test} from '../src/fixtures/base-fixture';
+import {test} from '../../src/fixtures/base-fixture';
 
 test.describe('Perform end to end tests: ',()=> {
  test('Perform checkout for the application',async ({page,inventoryPage,cartPage,checkoutPage}) => {

@@ -12,7 +12,6 @@ import { EnvConfig } from './src/utils/env-loader';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -31,7 +30,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     baseURL: EnvConfig.BASE_URL,
     headless: EnvConfig.IS_HEADLESS,
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     storageState: 'src/data/auth.json',
@@ -42,8 +41,18 @@ globalSetup: require.resolve('./src/utils/golbal-setup.ts'),
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      testDir:'./tests/ui',
+      use: { ...devices['Desktop Chrome'] }
     },
+    {
+      name: 'api',
+      testDir:'./tests/api',
+      use: {
+        baseURL: 'https://restful-booker.herokuapp.com',
+        storageState: undefined,
+        extraHTTPHeaders:{Accept: 'application/json'}
+      }
+    }
 /*
     {
       name: 'firefox',
