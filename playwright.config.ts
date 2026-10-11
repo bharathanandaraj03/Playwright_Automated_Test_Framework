@@ -36,7 +36,7 @@ export default defineConfig({
     storageState: 'src/data/auth.json',
   },
   timeout:EnvConfig.TIMEOUT,
-globalSetup: require.resolve('./src/utils/golbal-setup.ts'),
+globalSetup: require.resolve('./src/utils/global-setup.ts'),
   /* Configure projects for major browsers */
   projects: [
     {
