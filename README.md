@@ -17,3 +17,22 @@ TypeScript + Playwright framework with UI tests for [Sauce Demo](https://www.sau
 | Test data | `src/data/users.json`, `src/data/inventory.json`, `src/data/booking.json` |
 | Tests | `tests/ui/`: sorting, add to cart, cart count, end-to-end checkout. `tests/api/`: create/fetch booking, update with token, update rejected without valid token (403) |
 | Extend | UI: add a class in `src/pages/` extending `BasePage`. API: add a client in `src/api/`. Register either in `base-fixture.ts` and use it as a test argument |
+
+| Using Playwright 1.60’s ariaSnapshot() to pass lightweight spatial data to a local LLM like Ollama, drastically cutting execution costs and avoiding token bloat. |
+
+
+|High-Value: Deploying a tri-agent loop (Planner, Executor, Verifier) utilizing the Model Context Protocol (MCP) to parse the DOM and dynamically generate self-healing fixes.|
+
+|High-Value: Acting as the Human-in-the-Loop (HITL) who reviews the AI agent's automatically generated root-cause analysis and pull request, validating the business risk before anything is merged.|
+
+|The real engineering challenge is state management, ephemeral infrastructure, and AI orchestration|
+
+|Add Visual validaion testing sample|
+
+|Add Accesbility testing sample|
+
+|Add File upload and file download scenarios |
+
+|Add frame locator , multi window handler|
+
+|Enhance test datat support multiple environment|
